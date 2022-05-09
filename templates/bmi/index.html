@@ -1,0 +1,82 @@
+
+
+{% extends 'bmi/base.html' %}
+{% block content %}
+
+<div class="container">
+    <div class="form-row">
+        <!-- #############col1###############-->
+        <div class="col-md-6 col-sm-12 col-xs-12">
+            <div class="tab-bmi">
+                <h3>BMI Calculator</h3>
+                <div class="tab">
+                    <button class="tablinks" onclick="openUnit(event, 'metric')">Metric</button>
+                    <button class="tablinks" onclick="openUnit(event, 'imperial')">Imperial</button>
+                </div>
+
+                <div class="tabcontent" id ="metric">
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="col-12">
+                            <label for="">Weight: </label>
+                            <input type="text" name="weight-metric" class="form-control" required placeholder="kg">
+
+                        </div>
+                        <div class="col-12">
+                            <label for="">Height: </label>
+                            <input type="text" name="height-metric" class="form-control" required placeholder="m">
+
+                        </div>
+
+                        <div class="form-check-my-5">
+                            <input class="form-check-input" checked="checked" name="save" value="on" type="checkbox">
+                            <label for="" class="form-check-label">Save It.</label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" action="{% url 'home' %}">Calculate</button>
+
+                    </form>
+
+                </div>
+                
+                <div class="tabcontent" id ="imperial">
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="col-12">
+                            <label for="">Weight: </label>
+                            <input type="text" name="weight-imperial" class="form-control" required placeholder="lbs">
+
+                        </div>
+                        <div class="col-12">
+                            <label for="">Height: </label>
+                            <div class="input-group">
+                                <input type="text" name="feet" class="form-control" placeholder="feet">
+                                <input type="text" name="inches" class="form-control" placeholder="inches">
+
+                            </div>
+
+                        </div>
+
+                        <div class="form-check-my-5">
+                            <input class="form-check-input" checked="checked" name="save" value="on" type="checkbox">
+                            <label for="" class="form-check-label">Save It.
+                                <a href="#" title="Why to save It?" data-toggle="popover" data-trigger="focus"
+                                 data-content="In Case you need to track your weight, you can save it. (login required!)">?</a>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" action="{% url 'home' %}">Calculate</button>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+        <!--#############col2###############-->
+        <div class="col-md-6 col-sm-12 col-xs-12">
+
+        </div>
+
+    </div>
+</div>>
+{% endblock %}
