@@ -33,8 +33,9 @@ def home(request):
             state = "Obese class 2"
         else:
             state = "Obese class 3"
-        print(bmi)
-        print(state)
+        
+        context['bmi'] = round(bmi)
+        context['state'] = state
 
 
     return render(request, "bmi/index.html", context)

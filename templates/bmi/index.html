@@ -71,11 +71,18 @@
                 </div>
 
             </div>
-        </div>
         <!--#############col2###############-->
-        <div class="col-md-6 col-sm-12 col-xs-12">
 
         </div>
+
+    
+
+        {% if bmi %}
+        <div class="col-md-6 col-sm-12 col-xs-12">
+            <h2>Result</h2>
+            <p>Your BMI = {{bmi}} kg/m | {{state}}</p>        
+        </div>
+        {% endif %}
 
     </div>
 </div>>
